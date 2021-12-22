@@ -1,40 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Lorem Store</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title>Fun Cases</title>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
 	<div class="banner">
 		<p>NOW OFFERING FREE SHIPPING WORLDWIDE!</p>
 	</div>
-
+	
 	<header>
 		<div class="logo">
-			<a href="homepage.html"><img src="img/logo.png" height="100%"></a>
+			<a href="index.html">
+				<img src="img/funcases_logo.png" alt="logo" height="100%">
+			</a>
 		</div>
 
-		<div class="navigation">
-			<p><a href="new.html">New</a></p>
-			<p><a href="">Shop All</a></p>
-			<p><a href="">Collections</a></p>
+		<a href="#" class="toggle-button">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</a>
 
-			<img src="img/heart.png" name="heart-icon" height="24px">
-			<img src="img/bag.png" name="bag-icon" height="24px">
+		<div class="navigation">
+        <p class="nav-link"><a href="#aboutus">About Us</a></p>
+        <p class="nav-link"><a href="shopall.html">Shop All</a></p>
+        <div class="dropdown">
+          <p class="nav-link"><a id="coll" href="#collection">Collections</a></p>
+          <div class="dropdown-content">
+            <p><a href="animalprints.html">Animal Prints</a></p>
+            <p><a href="sailormoon.html">Sailor Moon</a></p>
+            <p><a href="fruits.html">Fruits</a></p>
+          </div>
+        </div>
+			<img id="bag"src="img/bag.png" alt="bag-icon" height="24px">
 
 			<div class="account">
-				<img src="img/avatar.png" name="avatar-icon" height="24px">
+				<img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px">
 
-				<p><a href="">Account</a></p>				
+				<p class="nav-link"><a href="login.html" target="_blank">Account</a></p>				
 			</div>
 
 		</div>
 	</header>
 
 	<main>
-		<div class="slider">
-			<img src="img/test3.jpg" height="auto" width="100%">
+		<div class="slider" id="slidee">
+			<h1>"New Collection "Animal Prints"</h1>
+
+			<p> Looking for the "missing piece" in your accessories drawer?
+				<br />
+				Coming with an assortment of colors and patterns,<br />
+				the "Animal Print" themed collection is guaranteed to spice up <br />
+				your phone and give you a sophisticated look! <br />
+				Check it out now and make your first purchase ;)<br />
+			</p>
+		
+			<a href="animalprints.html"><button>SHOP NOW</button></a>
+		</div>
+
+		<h2 class="coll-h" id="collection">Shop By Collection</h2>
+
+		<div class="collections">
+			<div class="box">
+				<a href="animalprints.html">
+					<img src="img/collection1.jpg">
+				<button>ANIMAL PRINTS</button></a>
+			</div>
+
+			<div class="box">
+				<a href="sailormoon.html">
+					<img src="img/collection2.jpg">
+				<button>SAILOR MOON</button></a>
+			</div>
+
+			<div class="box">
+				<a href="fruits.html">
+					<img src="img/collection3.jpg">
+				<button>FRUITS</button></a>
+			</div>
+		</div>
+
+		<div class="about" id="aboutus">
+			<div class="about-text">
+				<h1>About Us</h1>
+				<q>Style is a way to say who you are without having to speak.</q>
+            <pre>
+              ...and that is exactly what WE always try to offer. Nothing can
+              represent our company better than these words, since our main
+              goal, ever since our small begginings, has been to create
+              something unique and out-of-the box, a small piece in the size of
+              your pocket that you can use everyday, an accessory that inspires
+              and forms a connection with you! The idea was first born in the
+              summer of 2016, in an ordinnary coffee shop, where 2 friends
+              suddenly had a vision: To spread Creativity and Happiness by
+              turning a boring everyday essential into a chic and sophisticated
+              product! It has definitely been a long way since that time and
+              through dedication, those 2 friends were finally able to complete
+              their dream and now we are here to present to the world the
+              ULTIMATE PHONE CASES - a variety of specially designed,
+              personalized and manifactured phone cases, where everyone can find
+              a piece of themselves in the colorful and creative models found
+              here in our website :) Today FunCases is sold in more than 15
+              countries and we couldn't be more grateful for every purchase that
+              you do. Thank you for helping our bussines grow, for radiating
+              happiness and sharing your memories and with us
+              &hearts;&hearts;&hearts;
+            </pre>
+				
+			</div>
+
+			<div class="about-images">
+				
+			</div>
 		</div>
 	</main>
+
+	<footer>
+		<div class="footer-top">	
+		<form>
+			<h2>Contact Us</h3>
+			<textarea  rows="5" cols="50">Type your message here</textarea>
+			<label>E-mail:</label>
+			<div class="contact-submit">
+				<input type="email" name="">
+				<button type="submit">SEND</button>
+			</div>
+		</form>
+			<div class="socialmedia">
+				<a href="#"><img src="img/facebook.png" alt="fb-logo"></a>
+				<a href="#"><img src="img/instagram.png" alt="ig-logo"></a>
+				<a href="#"><img src="img/twitter.png" alt="twitter-logo"></a>
+				<a href="#"><img src="img/pinterest.png" alt="pinterest-logo"></a>
+			</div>
+		</div>
+
+		<div class="footer-bottom">	
+			<p>&copy; 2021, Fun Cases. All rights reserved.</p>
+			<p><a href="#">Privacy Policy</a> &bull;
+				<a href="#">Terms & Conditions</a> &bull;
+				<a href="#">FAQs</a>
+			</p>
+		</div>
+		
+	</footer>
+	<script type="text/javascript" src="main.js"></script>
+
 </body>
 </html>
