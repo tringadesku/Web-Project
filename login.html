@@ -7,8 +7,18 @@
 
     <title>LogIn/SignUp</title>
     <link rel="stylesheet" type="text/css" href="style/main.css" />
+    
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+ 
   </head>
   <body>
+
+    <!--Banner-->
+
     <div class="banner">
       <p>NOW OFFERING FREE SHIPPING WORLDWIDE!</p>
     </div>
@@ -18,8 +28,10 @@
         <a href="index.html"><img src="img/funcases_logo.png" alt="our Logo" height="100%" /></a>
       </div>
 
+      <!--Nav Bar-->
+
       <div class="navigation">
-        <p><a href="#">About Us</a></p>
+        <p><a href="index.html#aboutus">About Us</a></p>
         <p><a href="shopall.html">Shop All</a></p>
         <div class="dropdown">
           <p><a href="#">Collections</a></p>
@@ -32,34 +44,58 @@
 
         <img src="img/bag.png" alt="bag-icon" height="24px" />
         <div class="account">
-          <img src="img/avatar.png" alt="avatar-icon" height="24px" />
+          <img src="img/avatar.png" alt="avatar-icon" height="24px"/>
 
           <p><a id="active" href="login.html">Account</a></p>
         </div>
       </div>
     </header>
 
-    <div class="container">
-      <h2>Create Account</h2>
-      <form>
-        <label>First Name:</label>
-        <input type="text" name="">
+<main>
+  <div class="logcontainer">
+    <div class="img">
+      <img src="img/loginpic.svg" height="400px"/>
+    </div>
 
-        <label>Last Name:</label>
-        <input type="text" name=""> 
+    <div class="login-content" id="log_in">
+      <form class="form-login" action="#">
+        <img src="img/girl.svg"/>
+        <h2 class="title">Welcome!</h2>
 
-        <label>E-mail:</label>
-        <input type="E-mail" name="">       
+        <!--Username/Password-->
 
-        <label>Set Password</label>   
-        <input type="Password" name="">
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="div">
+            <h5>Username</h5>
+            <input type="text" id="username" class="input"/>
+          </div>
+        </div>
+        <label for="username" id="usernameMsg"></label>
 
-        <label>Confirm Password</label>
-        <input type="Password" name="">
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <h5>Password</h5>
+            <input type="password" id="password" class="input"/>
+          </div>
+        </div>
+        <label for="password" id="passwordMsg"></label>
 
-        <button type="submit">Register</button>
+        <input type="submit" id="loginButton" class="lbtn" value="LOG IN"/>
+        
+        <div class="signup-link">
+          <b>Not a member yet? <a href="signup.html">Sign-Up now!</a></b>
+        </div>
+
       </form>
     </div>
+  </div>
+        <!--Register-->
 
     <footer>
       <div class="footer-top">  
@@ -73,10 +109,10 @@
         </div>
       </form>
         <div class="socialmedia">
-          <a href="#"><img src="img/facebook.png" alt="fb-logo"></a>
-          <a href="#"><img src="img/instagram.png" alt="ig-logo"></a>
-          <a href="#"><img src="img/twitter.png" alt="twitter-logo"></a>
-          <a href="#"><img src="img/pinterest.png" alt="pinterest-logo"></a>
+         <a target="_blank" href="https://www.facebook.com/"><img src="img/facebook.png" alt="fb-logo"></a>
+         <a  target="_blank" href="https://www.instagram.com/"><img src="img/instagram.png" alt="ig-logo"></a>
+         <a target="_blank" href="https://www.twitter.com/"><img src="img/twitter.png" alt="twitter-logo"></a>
+         <a target="_blank" href="https://www.pinterest.com/"><img src="img/pinterest.png" alt="pinterest-logo"></a>
         </div>
       </div>
   
@@ -87,7 +123,48 @@
           <a href="#">FAQs</a>
         </p>
       </div>
+    </main>
       
-    </footer>
+    </footer> 
+    <script>
+var loginButton = document.getElementById("loginButton");
+
+var usernameMsg = document.getElementById("usernameMsg");
+var passwordMsg = document.getElementById("passwordMsg");
+
+var usernameRegex = /\w{5,14}/;
+var passwordRegex = /^[A-Z]\w+[a-z]\d{3}/;
+
+loginButton.addEventListener("click", function (event) {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  if (username == "" || username == null) {
+    usernameMsg.innerText = "Please fill the username field!";
+    event.preventDefault();
+  } else {
+    if (usernameRegex.test(username)) {
+      usernameMsg.innerText = "";
+    } else {
+      usernameMsg.innerText =
+        "Username must be between 5-15 characters!";
+      event.preventDefault();
+    }
+  }
+
+  if (password == "" || password == null) {
+    passwordMsg.innerText = "Please fill the password field!";
+    event.preventDefault();
+  } else {
+    if (passwordRegex.test(password)) {
+      passwordMsg.innerText = "";
+    } else {
+      passwordMsg.innerText =
+        "Password should start with a capital and end with 3 numbers!";
+      event.preventDefault();
+    }
+  }
+});
+    </script>
   </body>
 </html>
