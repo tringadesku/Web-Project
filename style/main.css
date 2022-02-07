@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html,body{
+    overflow-x: hidden;
+}
+
 body {
   margin: 0;
 }
@@ -106,7 +110,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
-  height: 30px;
+  height: 25px;
 }
 
 .toggle-button > .bar {
@@ -114,65 +118,6 @@ header {
   width: 100%;
   background-color: deeppink;
   border-radius: 10px;
-}
-
-@media screen and (max-width: 992px) {
-  header {
-    flex-direction: column;
-    display: block;
-    height: 100%;
-  }
-
-  .navigation {
-    background-color: white;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .nav-link {
-    display: none;
-  }
-
-  .navigation p > a {
-    width: 100%;
-  }
-
-  .logo {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-
-  .logo img {
-    height: 60px;
-  }
-
-  .toggle-button {
-    display: flex;
-  }
-
-  #bag {
-    height: 28px;
-    position: absolute;
-    margin-top: -45px;
-    right: 25px;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  .dropdown:hover {
-    transition: all 0.5s ease-in-out;
-  }
-
-  .dropdown-content {
-    background-color: unset;
-    width: 100%;
-    box-shadow: unset;
-  }
 }
 
 footer {
@@ -185,7 +130,9 @@ footer {
 }
 
 .footer-top {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -281,6 +228,10 @@ footer textarea {
   box-sizing: border-box;
 }
 
+#sliderheading{
+  display: none;
+}
+
 .slider h1 {
   font-family: sans-serif;
   margin: 0;
@@ -318,8 +269,9 @@ footer textarea {
 .collections {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
-  height: 280px;
+  height: auto;
   justify-content: space-around;
 }
 
@@ -327,7 +279,7 @@ footer textarea {
   display: flex;
   flex-direction: column;
   width: 435px;
-  height: 280px;
+  height: 245px;
   justify-content: space-between;
   transition: 0.3s;
 }
@@ -362,9 +314,10 @@ footer textarea {
 
 .about {
   display: flex;
+  width: 100%;
   flex-direction: row;
-  padding-left: 25px;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -387,11 +340,25 @@ footer textarea {
   font-size: 20px;
 }
 
+.about .pre2{
+  display: none;
+}
+
+.about .pre3{
+  display: none;
+}
+
 .about-images {
   margin-right: 25px;
-  width: 700px;
-  height: 450px;
-  overflow: hidden;
+  width: 600px;
+  height: 425px;
+}
+
+.about-images img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*qikjo e bon qe foto me fit size te divit ku osht, amo nvend qe
+                      me stretch ashtu keq veq e crop pjesen jasht qe del*/
 }
 
 
@@ -489,11 +456,16 @@ footer textarea {
   width: 500px;
 }
 
+.logcontainer{
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap-reverse;
+}
+
 .login-content {
   display: flex;
   align-items: flex-start;
   text-align: center;
-  padding-left: 100px;
 }
 
 .form-login label {
@@ -502,7 +474,6 @@ footer textarea {
 
 .form-login {
   width: 350px;
-  padding-left: 100px;
 }
 
 .login-content img {
@@ -592,12 +563,13 @@ footer textarea {
 
 .signupcontainer {
   background-image: url(../img/pinkwave2.png);
-  background-position: center;
+  background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: 750px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-bottom: -100px;
 }
@@ -642,5 +614,267 @@ footer textarea {
 }
 
 
+@media screen and (max-width: 1370px){
+  .slider{
+    height: 235px;
+  }
 
+  .box {
+    width: 360px;
+  }
 
+  .box img {
+    height: 205px;
+    width: 100%;
+  }
+
+  .about pre {
+    font-size: 18px;
+  }
+
+  .about-images {
+    margin-right: 25px;
+    width: 500px;
+    height: 410px;
+  }
+
+}
+
+@media screen and (max-width: 1105px){
+  .slider{
+    height: 180px;
+  }
+
+  .slider h1 {
+    font-size: 24px;
+   
+  }
+  .slider p {
+    font-size: 18px;
+
+  }
+  .slider button{
+    font-size: 20px;
+    padding: 5px 32px;
+  }
+
+  .box {
+    width: 330px;
+  }
+
+  .box img {
+    height: 190px;
+    width: 100%;
+  }
+
+  .about-images {
+    margin-right: 25px;
+    width: 800px;
+    height: 200px;
+  }
+
+  .about-images img {
+    margin-left: 12px;
+  }
+
+  .about .pre1{
+    display: none;
+  }
+
+  .about .pre2{
+   display: flex;
+   text-align: center;
+  }
+
+  .img2 img{
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  header {
+    flex-direction: column;
+    display: block;
+    height: 100%;
+  }
+
+  .navigation {
+    background-color: white;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-link {
+    display: none;
+  }
+
+  .navigation p > a {
+    width: 100%;
+  }
+
+  .logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .toggle-button {
+    display: flex;
+  }
+
+  #bag {
+    height: 28px;
+    position: absolute;
+    margin-top: -45px;
+    right: 25px;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .dropdown:hover {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .dropdown-content {
+    background-color: unset;
+    width: 100%;
+    box-shadow: unset;
+  }
+
+  .box {
+   width: 300px;
+  }
+
+  .box img {
+    height: 180px;
+    width: 100%;
+  }
+
+  .about{
+    padding-top: 50px;
+  }
+
+  .img img {
+   width: 390px;
+  }
+}
+
+@media screen and (max-width: 840px){
+  .slider{
+    height: 150px;
+  }
+
+  .slider p{
+    display: none;
+  }
+
+  .slider h1{
+    padding-bottom: 15px;
+  }
+
+  .about .pre2{
+    font-size: 16px;
+  }
+
+  .logcontainer{
+    height: auto;
+  }
+
+  .img img{
+    padding-left: 100px;
+  }
+
+  .signupcontainer{
+    height: auto;
+  }
+
+  .img2 img{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 810px){
+  .slider h1{
+    display: none;
+  }
+
+  #sliderheading{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 590px){
+  .slider{
+    background-image: url(../img/slider33.jpg);
+  }
+
+  .about q{
+    display: none;
+    font-size: 14px;
+  }
+  .about .pre2{
+    display: none;
+  }
+
+  .about .pre3{
+   display: flex;
+   font-size: 14px;
+   text-align: center;
+  }
+
+  .footer-top form > textarea{
+    width: 270px;
+  }
+
+  .socialmedia img{
+    height: 50px;
+  }
+
+  .form-login{
+    width: 270px;
+  }
+
+  .img img{
+    width: 280px;
+  }
+
+  .signupform{
+    width: 270px;
+  }
+
+  .signupform input{
+    width: 270px;
+  }
+
+  .img2 img{
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 340px){
+  .banner p{
+    font-size: 12px;
+    padding-top: 8px;
+  }
+  .slider h1{
+    padding-left: 10px;
+  }
+
+  .slider button{
+    margin-left: 10px;
+  }
+
+  .about-text h1{
+    text-align: center;
+    font-size: 18px;
+  }
+}

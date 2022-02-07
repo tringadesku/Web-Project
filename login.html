@@ -28,13 +28,18 @@
         <a href="index.html"><img src="img/funcases_logo.png" alt="our Logo" height="100%" /></a>
       </div>
 
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
       <!--Nav Bar-->
 
       <div class="navigation">
-        <p><a href="index.html#aboutus">About Us</a></p>
-        <p><a href="shopall.html">Shop All</a></p>
+        <p class="nav-link"><a href="index.html#aboutus">About Us</a></p>
+        <p class="nav-link"><a href="shopall.html">Shop All</a></p>
         <div class="dropdown">
-          <p><a href="#">Collections</a></p>
+          <p class="nav-link"><a href="#">Collections</a></p>
           <div class="dropdown-content">
             <p><a href="animalprints.html">Animal Prints</a></p>
             <p><a href="sailormoon.html">Sailor Moon</a></p>
@@ -42,11 +47,11 @@
           </div>
         </div>
 
-        <img src="img/bag.png" alt="bag-icon" height="24px" />
+        <img id="bag" src="img/bag.png" alt="bag-icon" height="24px" />
         <div class="account">
-          <img src="img/avatar.png" alt="avatar-icon" height="24px"/>
+          <img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px"/>
 
-          <p><a id="active" href="login.html">Account</a></p>
+          <p class="nav-link"><a id="active" href="login.html">Account</a></p>
         </div>
       </div>
     </header>
@@ -166,5 +171,6 @@ loginButton.addEventListener("click", function (event) {
   }
 });
     </script>
+    <script type="text/javascript" src="main2.js"></script>
   </body>
 </html>
