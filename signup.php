@@ -25,7 +25,7 @@
 
     <header>
       <div class="logo">
-        <a href="index.html"><img src="img/funcases_logo.png" alt="our Logo" height="100%" /></a>
+        <a href="index.php"><img src="img/funcases_logo.png" alt="our Logo" height="100%" /></a>
       </div>
 
     <a href="#" class="toggle-button">
@@ -36,14 +36,14 @@
       <!--Nav Bar-->
 
       <div class="navigation">
-        <p class="nav-link"><a href="index.html#aboutus">About Us</a></p>
-        <p class="nav-link"><a href="shopall.html">Shop All</a></p>
+        <p class="nav-link"><a href="index.php#aboutus">About Us</a></p>
+        <p class="nav-link"><a href="shopall.php">Shop All</a></p>
         <div class="dropdown">
           <p class="nav-link"><a href="#">Collections</a></p>
           <div class="dropdown-content">
-            <p><a href="animalprints.html">Animal Prints</a></p>
-            <p><a href="sailormoon.html">Sailor Moon</a></p>
-            <p><a id="active" href="fruits.html">Fruits</a></p>
+            <p><a href="animalprints.php">Animal Prints</a></p>
+            <p><a href="sailormoon.php">Sailor Moon</a></p>
+            <p><a id="active" href="fruits.php">Fruits</a></p>
           </div>
         </div>
 
@@ -51,7 +51,7 @@
         <div class="account">
           <img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px"/>
 
-          <p class="nav-link"><a id="active" href="login.html">Account</a></p>
+          <p class="nav-link"><a id="active" href="login.php">Account</a></p>
         </div>
       </div>
     </header>
@@ -59,33 +59,34 @@
 
     <main>
       <div class="signupcontainer">
-        <form class="signupform" action="">
+        <form class="signupform" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 
           <h2>Create Account: </h2>
 
           <h5>First Name:</h5>
-          <input type="text" id="fname"> <br>
+          <input type="text" id="fname" name="fname"> <br>
           <label id="fnameMsg" for="fname"></label><br>
           <h5>Last Name:</h5>
-          <input type="text" id="lname"><br>
+          <input type="text" id="lname" name="lname"><br>
           <label id="lnameMsg" for="lname"></label><br>
           <h5>Username:</h5>
-          <input type="text" id="username"><br>
+          <input type="text" id="username" name="username"><br>
           <label id="usernameMsg" for="username"></label><br>
           <h5>E-mail:</h5>
-          <input type="text" id="email"><br>
+          <input type="text" id="email" name="email"><br>
           <label id="emailMsg" for="email"></label><br>
           <h5>Password:</h5>
-          <input type="password" id="password"><br>
+          <input type="password" id="password" name="password"><br>
           <label id="passwordMsg" for="password"></label><br>
 
-          <input type="submit" class="lbtn" id="register" value="REGISTER">
+          <input type="submit" class="lbtn" id="register" name="registerButton" value="REGISTER">
 
           <div class="signup-link">
-           <b>Already have an account? <a href="login.html">Log In</a></b>
+           <b>Already have an account? <a href="login.php">Log In</a></b>
           </div>
 
         </form>
+        <?php include_once 'registerController.php';?>
 
     <div class="img2">
       <img src="img/su1.svg" height="400px"/>

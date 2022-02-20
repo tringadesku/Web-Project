@@ -12,7 +12,7 @@
 
 	<header>
 		<div class="logo">
-			<a href="index.html">
+			<a href="index.php">
 				<img src="img/funcases_logo.png" alt="logo" height="100%">
 			</a>
 		</div>
@@ -27,13 +27,13 @@
 
 		<div class="navigation">
         <p class="nav-link"><a href="#aboutus">About Us</a></p>
-        <p class="nav-link"><a href="shopall.html">Shop All</a></p>
+        <p class="nav-link"><a href="shopall.php">Shop All</a></p>
         <div class="dropdown">
           <p class="nav-link"><a id="coll" href="#collection">Collections</a></p>
           <div class="dropdown-content">
-            <p><a href="animalprints.html">Animal Prints</a></p>
-            <p><a href="sailormoon.html">Sailor Moon</a></p>
-            <p><a href="fruits.html">Fruits</a></p>
+            <p><a href="animalprints.php">Animal Prints</a></p>
+            <p><a href="sailormoon.php">Sailor Moon</a></p>
+            <p><a href="fruits.php">Fruits</a></p>
           </div>
         </div>
 			<img id="bag" src="img/bag.png" alt="bag-icon" height="24px">
@@ -41,7 +41,7 @@
 			<div class="account">
 				<img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px">
 
-				<p class="nav-link"><a href="login.html" target="_blank">Account</a></p>				
+				<p class="nav-link"><a href="login.php" target="_blank">Account</a></p>				
 			</div>
 
 		</div>
@@ -56,26 +56,26 @@
 				Coming with an assortment of colors and patterns.<br/>
 			</p>
 		
-			<a href="animalprints.html"><button>SHOP NOW</button></a>
+			<a href="animalprints.php"><button>SHOP NOW</button></a>
 		</div>
 
 		<h2 class="coll-h" id="collection">Shop By Collection</h2>
 
 		<div class="collections">
 			<div class="box">
-				<a href="animalprints.html">
+				<a href="animalprints.php">
 					<img src="img/collection1.jpg">
 				<button>ANIMAL PRINTS</button></a>
 			</div>
 
 			<div class="box">
-				<a href="sailormoon.html">
+				<a href="sailormoon.php">
 					<img src="img/collection2.jpg">
 				<button>SAILOR MOON</button></a>
 			</div>
 
 			<div class="box">
-				<a href="fruits.html">
+				<a href="fruits.php">
 					<img src="img/collection3.jpg">
 				<button>FRUITS</button></a>
 			</div>
