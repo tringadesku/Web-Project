@@ -1,3 +1,5 @@
+<?php
+  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +44,13 @@
         <div class="account">
           <img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px" />
 
-          <p class="nav-link"><a href="login.php" target="_blank">Account</a></p>
+        <?php if(isset($_SESSION['username'])){
+          echo "<p class='nav-link'><a href='profile.php'>".$_SESSION['username']." Profile</a></p>";
+        }
+        else{
+          echo "<p class='nav-link'><a href='login.php' target='_blank'>Account</a></p>";
+        }
+          ?>  
         </div>
       </div>
     </header>
@@ -216,15 +224,18 @@
 
   <footer>
     <div class="footer-top">  
-    <form>
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
       <h2>Contact Us</h3>
-      <textarea  rows="5" cols="50">Type your message here</textarea>
-      <label>Email:</label>
+      <textarea rows="5" cols="50" name="message">Type your message here</textarea>
+      <label>E-mail:</label>
       <div class="contact-submit">
-        <input type="email" name="">
-        <button type="submit">SEND</button>
+        <input type="email" name="contactEmail">
+        <input class="contactButton" type="submit" name="contactButton" value="SEND">
       </div>
     </form>
+    
+    <?php include_once 'contactController.php';?>
+    
       <div class="socialmedia">
          <a target="_blank" href="https://www.facebook.com/"><img src="img/facebook.png" alt="fb-logo"></a>
          <a  target="_blank" href="https://www.instagram.com/"><img src="img/instagram.png" alt="ig-logo"></a>

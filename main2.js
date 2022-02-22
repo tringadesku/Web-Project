@@ -1,20 +1,20 @@
 const navtest = document.getElementsByClassName('nav-link');
 const butoni = document.getElementsByClassName('toggle-button');
-var mbyllur = true;
+var hapur = true;
 
 for (var i = 0 ; i < butoni.length; i++) {
    butoni[i].addEventListener('click', show); 
 }
 
 function show() {
-  if(mbyllur){
-    mbyllur = false;
+  if(hapur){
+    hapur = false;
     for (var j = 0; j < navtest.length; j++){
       navtest[j].style.display = 'flex';
     }
   }
   else{
-    mbyllur = true;
+    hapur = true;
     for (var n = 0; n < navtest.length; n++){
       navtest[n].style.display = 'none'; 
     }

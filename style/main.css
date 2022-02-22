@@ -164,7 +164,7 @@ footer textarea {
   flex-direction: row;
 }
 
-.contact-submit button {
+.contact-submit .contactButton {
   border: none;
   background-color: black;
   color: white;
@@ -172,7 +172,7 @@ footer textarea {
   cursor: pointer;
 }
 
-.contact-submit button:hover {
+.contact-submit .contactButton:hover {
   color: deeppink;
 }
 

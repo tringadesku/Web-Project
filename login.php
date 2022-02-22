@@ -63,7 +63,7 @@
     </div>
 
     <div class="login-content" id="log_in">
-      <form class="form-login" action="#">
+      <form class="form-login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <img src="img/girl.svg"/>
         <h2 class="title">Welcome!</h2>
 
@@ -75,7 +75,7 @@
           </div>
           <div class="div">
             <h5>Username</h5>
-            <input type="text" id="username" class="input"/>
+            <input type="text" id="username" name="username"class="input"/>
           </div>
         </div>
         <label for="username" id="usernameMsg"></label>
@@ -86,33 +86,37 @@
           </div>
           <div class="div">
             <h5>Password</h5>
-            <input type="password" id="password" class="input"/>
+            <input type="password" id="password" class="input" name="password"/>
           </div>
         </div>
         <label for="password" id="passwordMsg"></label>
 
-        <input type="submit" id="loginButton" class="lbtn" value="LOG IN"/>
+        <input type="submit" id="loginButton" class="lbtn" value="LOG IN" name="loginButton"/>
         
         <div class="signup-link">
           <b>Not a member yet? <a href="signup.php">Sign-Up now!</a></b>
         </div>
 
       </form>
+      <?php include_once 'loginController.php';?>
     </div>
   </div>
         <!--Register-->
 
     <footer>
       <div class="footer-top">  
-      <form>
-        <h2>Contact Us</h3>
-        <textarea  rows="5" cols="50">Type your message here</textarea>
-        <label>Email:</label>
-        <div class="contact-submit">
-          <input type="email" name="">
-          <button type="submit">SEND</button>
-        </div>
-      </form>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+          <h2>Contact Us</h3>
+          <textarea rows="5" cols="50" name="message">Type your message here</textarea>
+          <label>E-mail:</label>
+          <div class="contact-submit">
+            <input type="email" name="contactEmail">
+            <input class="contactButton" type="submit" name="contactButton" value="SEND">
+          </div>
+        </form>
+    
+        <?php include_once 'contactController.php';?>
+        
         <div class="socialmedia">
          <a target="_blank" href="https://www.facebook.com/"><img src="img/facebook.png" alt="fb-logo"></a>
          <a  target="_blank" href="https://www.instagram.com/"><img src="img/instagram.png" alt="ig-logo"></a>
