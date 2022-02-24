@@ -12,9 +12,42 @@ include_once 'databaseConnection.php';
 			//$connection pe barazon me $connect qe vjen frej funksionit startCon. 
 		}
 
-	    function insertUser($user){
+		function checkEmail($user){
+		    $connect = $this->connection;
 
-	        $connect = $this->connection;
+	        $email = $user->getEmail();
+
+       		$sql = "SELECT * FROM users WHERE Email='$email'";
+        
+        	$statement = $connect->query($sql);
+        	$checkEmail = $statement->fetchAll();
+
+        	if(count($checkEmail) == 0){
+            	return false;
+        	}else{
+        		return true;
+        	}
+		}
+
+		function checkUsername($user){
+		    $connect = $this->connection;
+
+		    $username = $user->getUsername();
+
+       		$sql = "SELECT * FROM users WHERE Username='$username'";
+        
+        	$statement = $connect->query($sql);
+        	$checkUsername = $statement->fetchAll();
+
+        	if(count($checkUsername) == 0){
+            	return false;
+        	}else{
+        		return true;
+        	}
+		}
+
+	    function insertUser($user){
+	    	$connect = $this->connection;
 
 	        $fname = $user->getFname();
 	        $lname = $user->getLname();
@@ -50,7 +83,7 @@ include_once 'databaseConnection.php';
 	        $sql = "SELECT * FROM users WHERE Username='$username'";
 
 	        $statement = $connect->query($sql);
-	        $user_username = $statement->fetchAll();
+	        $user_username = $statement->fetch();
 
 	        return $user_username;
 	    }
@@ -96,8 +129,6 @@ include_once 'databaseConnection.php';
 	         $statement = $connect->prepare($sql);
 
 	         $statement->execute([$fname,$lname,$username,$email,$password,$role,$id]);
-
-	         echo "<script>alert('update was successful'); </script>";
 	    } 
 
 	    function deleteUser($id){
@@ -109,7 +140,6 @@ include_once 'databaseConnection.php';
 
 	        $statement->execute([$id]);
 
-	        echo "<script>alert('delete was successful'); </script>";
 	   } 
 
 	}

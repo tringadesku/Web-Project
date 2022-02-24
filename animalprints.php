@@ -7,18 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>Animal Prints</title>
-	<link rel="stylesheet" type="text/css" href="style/main.css">
+  <title>Animal Prints</title>
+  <link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
-	<div class="banner">
-		<p>NOW OFFERING FREE SHIPPING WORLDWIDE!</p>
-	</div>
+  <div class="banner">
+    <p>NOW OFFERING FREE SHIPPING WORLDWIDE!</p>
+  </div>
 
-	<header>
-		<div class="logo">
-			<a href="index.php"><img src="img/funcases_logo.png" alt="our_logo" height="100%"></a>
-		</div>
+  <header>
+    <div class="logo">
+      <a href="index.php"><img src="img/funcases_logo.png" alt="our_logo" height="100%"></a>
+    </div>
 
     <a href="#" class="toggle-button">
       <span class="bar"></span>
@@ -26,7 +26,7 @@
       <span class="bar"></span>
     </a>
     
-		<div class="navigation">
+    <div class="navigation">
         <p class="nav-link"><a href="index.php#aboutus">About Us</a></p>
         <p class="nav-link"><a href="shopall.php">Shop All</a></p>
         <div class="dropdown">
@@ -38,10 +38,10 @@
           </div>
         </div>
 
-			<img id="bag" src="img/bag.png" alt="bag-icon" height="24px">
+      <img id="bag" src="img/bag.png" alt="bag-icon" height="24px">
 
-			<div class="account">
-				<img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px">
+      <div class="account">
+        <img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px">
 
         <?php if(isset($_SESSION['username'])){
           echo "<p class='nav-link'><a href='profile.php'>".$_SESSION['username']." Profile</a></p>";
@@ -49,66 +49,33 @@
         else{
           echo "<p class='nav-link'><a href='login.php' target='_blank'>Account</a></p>";
         }
-          ?>  				
-			</div>
+          ?>          
+      </div>
 
-		</div>
-	</header>
+    </div>
+  </header>
 
-	      <div class="container">
-        <!-- Animal Prints Collection-->
-        <div class="product-box">
-            <a href="#"><img src="img/cheetah print case.jpg">
-            <div class="product-text">
-              <p>Cheetah Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
 
-        <div class="product-box">
-            <a href="#"><img src="img/giraffe print case.jpg">
-            <div class="product-text">
-              <p>Giraffe Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        <div class="product-box">
-            <a href="#"><img src="img/zebra print case.jpg">
-            <div class="product-text">
-              <p>Zebra Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/tiger print case.jpg">
-            <div class="product-text">
-              <p>Tiger Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+        <div class="container">
+            <?php 
+             include_once 'productsRepo.php';
+             $productsRepository = new productsRepo();
 
-        <div class="product-box">
-            <a href="#"><img src="img/lion print case.jpg">
-            <div class="product-text">
-              <p>Lion Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/fish print case.jpg">
-            <div class="product-text">
-              <p>Fish Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+             $collection = "animalprints";
+
+             $products = $productsRepository->getProductsByCollection($collection);
+
+             foreach($products as $product){
+                echo 
+                "<div class='product-box'>
+                <a href='#'><img src='img/$product[ProductName].jpg'>
+                <div class='product-text'>
+                <p>$product[ProductText]</p>
+                <p class='price'>$$product[Price]</p>
+                </div></a>
+                <button>ADD TO BAG</button>
+                </div>";
+             }?>
         
     </div>
   <footer>

@@ -7,7 +7,7 @@ include_once 'usersRepo.php';
 $userRepository = new usersRepo();
 $userRepository->deleteUser($userId);
 
-header("location:dashboard.php");
+header("location:manageUsers.php");
 
 
 ?>

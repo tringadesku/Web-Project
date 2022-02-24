@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Messages</title>
+	<title>Manage Users</title>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -57,45 +57,57 @@
 	<table>
 		<tr>
 			<th>ID</th>
-			<th>Message</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Username</th>
 			<th>Email</th>
+			<th>Password</th>
+			<th>Role</th>
+			<th></th>
+			<th></th>
 		</tr>
              <?php 
-             include_once 'contactRepo.php';
-             $contactRepository = new contactRepo();
+             include_once 'usersRepo.php';
+             $userRepository = new usersRepo();
 
-             $messages = $contactRepository->getAllMessages();
+             $users = $userRepository->getAllUsers();
 
-             foreach($messages as $message){
+             foreach($users as $user){
                 echo 
                 "
                 <tr>
-                     <td>$message[ID]</td>
-                     <td>$message[Message]</td>
-                     <td>$message[Email] </td>
+                     <td>$user[ID]</td>
+                     <td>$user[Emri]</td>
+                     <td>$user[Mbiemri] </td>
+                     <td>$user[Username] </td>
+                     <td>$user[Email] </td>
+                     <td>$user[Password] </td>
+                     <td>$user[Role] </td>
+                     <td> <a href='editUser.php?id=$user[ID]' style='text-decoration: none;'>
+						<input class='profileButton' type='submit' value='EDIT'>
+					 </a></td>
+                    <td> <a href='deleteUser.php?id=$user[ID]' style='text-decoration: none;'>
+						<input class='profileButton' type='submit' value='DELETE'>
+					</a></td>
                 </tr>
                 ";
              }
-
-             
-             
+          
              ?>
 	</table>
+
 </main>
 	<footer>
 		<div class="footer-top">	
-		<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+		<form>
 			<h2>Contact Us</h3>
-			<textarea rows="5" cols="50" name="message">Type your message here</textarea>
+			<textarea  rows="5" cols="50">Type your message here</textarea>
 			<label>E-mail:</label>
 			<div class="contact-submit">
-				<input type="email" name="contactEmail">
-				<input class="contactButton" type="submit" name="contactButton" value="SEND">
+				<input type="email" name="">
+				<button type="submit">SEND</button>
 			</div>
 		</form>
-		
-		<?php include_once 'contactController.php';?>
-		
 			<div class="socialmedia">
 			   <a target="_blank" href="https://www.facebook.com/"><img src="img/facebook.png" alt="fb-logo"></a>
 			   <a  target="_blank" href="https://www.instagram.com/"><img src="img/instagram.png" alt="ig-logo"></a>

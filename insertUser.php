@@ -7,12 +7,6 @@
 
     <title>LogIn/SignUp</title>
     <link rel="stylesheet" type="text/css" href="style/main.css" />
-    
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
  
   </head>
   <body>
@@ -61,7 +55,7 @@
       <div class="signupcontainer">
         <form class="signupform" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 
-          <h2>Create Account: </h2>
+          <h2>INSERT USER: </h2>
 
           <h5>First Name:</h5>
           <input type="text" id="fname" name="fname"> <br>
@@ -79,18 +73,10 @@
           <input type="password" id="password" name="password"><br>
           <label id="passwordMsg" for="password"></label><br>
 
-          <input type="submit" class="lbtn" id="register" name="registerButton" value="REGISTER">
-
-          <div class="signup-link">
-           <b>Already have an account? <a href="login.php">Log In</a></b>
-          </div>
+          <input type="submit" class="lbtn" id="register" name="registerButton" value="INSERT">
 
         </form>
         <?php include_once 'registerController.php';?>
-
-    <div class="img2">
-      <img src="img/su1.svg" height="400px"/>
-    </div>
 
       </div>
 
@@ -108,7 +94,7 @@
         </div>
       </form>
       
-      <?php include_once 'userController.php';?>
+      <?php include_once 'contactController.php';?>
       
         <div class="socialmedia">
          <a target="_blank" href="https://www.facebook.com/"><img src="img/facebook.png" alt="fb-logo"></a>

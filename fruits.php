@@ -57,60 +57,25 @@
 	</header>
 
 	      <div class="container">
-        <!-- Fruits Collection-->
-        <div class="product-box">
-            <a href="#"><img src="img/kiwi case.jpg">
-            <div class="product-text">
-              <p>Kiwi Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+            <?php 
+             include_once 'productsRepo.php';
+             $productsRepository = new productsRepo();
 
-        <div class="product-box">
-            <a href="#"><img src="img/lemon case.jpg">
-            <div class="product-text">
-              <p>Lemon Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+             $collection = "fruits";
 
-        <div class="product-box">
-            <a href="#"><img src="img/pineapple case.jpg">
-            <div class="product-text">
-              <p>Pineapple Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/orange case.jpg">
-            <div class="product-text">
-              <p>Orange Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+             $products = $productsRepository->getProductsByCollection($collection);
 
-        <div class="product-box">
-            <a href="#"><img src="img/watermelon case.jpg">
-            <div class="product-text">
-              <p>Watermelon Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/peach case.jpg">
-            <div class="product-text">
-              <p>Peach Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+             foreach($products as $product){
+                echo 
+                "<div class='product-box'>
+                <a href='#'><img src='img/$product[ProductName].jpg'>
+                <div class='product-text'>
+                <p>$product[ProductText]</p>
+                <p class='price'>$$product[Price]</p>
+                </div></a>
+                <button>ADD TO BAG</button>
+                </div>";
+             }?>
     </div>  
     <footer>
     <div class="footer-top">  

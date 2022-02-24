@@ -57,168 +57,23 @@
 
     <main>
       <div class="container">
-        <!-- Animal Prints Collection-->
-        <div class="product-box">
-            <a href="#"><img src="img/cheetah print case.jpg">
-            <div class="product-text">
-              <p>Cheetah Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+            <?php 
+             include_once 'productsRepo.php';
+             $productsRepository = new productsRepo();
 
-        <div class="product-box">
-            <a href="#"><img src="img/giraffe print case.jpg">
-            <div class="product-text">
-              <p>Giraffe Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        <div class="product-box">
-            <a href="#"><img src="img/zebra print case.jpg">
-            <div class="product-text">
-              <p>Zebra Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/tiger print case.jpg">
-            <div class="product-text">
-              <p>Tiger Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+             $products = $productsRepository->getAllProducts();
 
-        <div class="product-box">
-            <a href="#"><img src="img/lion print case.jpg">
-            <div class="product-text">
-              <p>Lion Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/fish print case.jpg">
-            <div class="product-text">
-              <p>Fish Print Case</p>
-              <p class="price">$14</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-
-        <!-- Saior Moon Collection-->
-        <div class="product-box">
-            <a href="#"><img src="img/sailor moon case.jpg">
-            <div class="product-text">
-              <p>Sailor Moon Case</p>
-              <p class="price">$10</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-
-        <div class="product-box">
-            <a href="#"><img src="img/sailor neptune case.jpg">
-            <div class="product-text">
-              <p>Sailor Neptune Case</p>
-              <p class="price">$10</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        <div class="product-box">
-            <a href="#"><img src="img/sailor rini case.jpg">
-            <div class="product-text">
-              <p>Sailor Rini Case</p>
-              <p class="price">$10</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/sailor mercury case.jpg">
-            <div class="product-text">
-              <p>Sailor Mercury Case</p>
-              <p class="price">$10</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-
-        <div class="product-box">
-            <a href="#"><img src="img/sailor mars case.jpg">
-            <div class="product-text">
-              <p>Sailor Mars Case</p>
-              <p class="price">$10</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/sailor jupiter case.jpg">
-            <div class="product-text">
-              <p>Sailor Jupiter Case</p>
-              <p class="price">$10</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-
-        <!-- Fruits Collection-->
-        <div class="product-box">
-            <a href="#"><img src="img/kiwi case.jpg">
-            <div class="product-text">
-              <p>Kiwi Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-
-        <div class="product-box">
-            <a href="#"><img src="img/lemon case.jpg">
-            <div class="product-text">
-              <p>Lemon Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-
-        <div class="product-box">
-            <a href="#"><img src="img/pineapple case.jpg">
-            <div class="product-text">
-              <p>Pineapple Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/orange case.jpg">
-            <div class="product-text">
-              <p>Orange Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-
-        <div class="product-box">
-            <a href="#"><img src="img/watermelon case.jpg">
-            <div class="product-text">
-              <p>Watermelon Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
-        
-        <div class="product-box">
-            <a href="#"><img src="img/peach case.jpg">
-            <div class="product-text">
-              <p>Peach Case</p>
-              <p class="price">$12</p>
-            </div></a>
-            <button>ADD TO BAG</button>
-        </div>
+             foreach($products as $product){
+                echo 
+                "<div class='product-box'>
+                <a href='#'><img src='img/$product[ProductName].jpg'>
+                <div class='product-text'>
+                <p>$product[ProductText]</p>
+                <p class='price'>$$product[Price]</p>
+                </div></a>
+                <button>ADD TO BAG</button>
+                </div>";
+             }?>
       </div>
     </main>
 

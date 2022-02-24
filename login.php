@@ -98,7 +98,7 @@
         </div>
 
       </form>
-      <?php include_once 'loginController.php';?>
+      <?php include_once 'userController.php';?>
     </div>
   </div>
         <!--Register-->

@@ -7,9 +7,6 @@ include_once 'contact.php';
             $message = $_POST['message'];
             $email = $_POST['contactEmail'];
 
-            echo $message;
-            echo $email;
-
             $contact  = new Contact($message,$email);
             $contactRepository = new contactRepo();
 

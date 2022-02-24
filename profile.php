@@ -1,15 +1,15 @@
 <?php
 	$hide="";
 	session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}else{
-	if($_SESSION["role"] == "admin"){
-    	 $hide = "";
-    }else{
-    $hide = "hide";
+	if(!isset($_SESSION['username'])){
+	  header("location:login.php");
+	}else{
+		if($_SESSION["role"] == "admin"){
+	    	 $hide = "";
+	    }else{
+	    $hide = "hide";
+		}
 	}
-
  ?>
  <!DOCTYPE html>
 <html>
@@ -66,9 +66,30 @@ if(!isset($_SESSION['username'])){
 
 	<main>
 		<h1>Welcome back, <?php echo $_SESSION['username'];?>!</h1>
-		<a href="dashboard.php" class="<?php echo $hide ?>">Dashboard</a>
-		<a href="readMessages.php" class="<?php echo $hide ?>">Read Messages</a>
-		<a href="logout.php"><input  type="button" name="logoutButton" value="LOG OUT"></a>
+		<?php 
+
+			include_once 'usersRepo.php';
+		    $userRepository = new usersRepo();
+
+		    $user = $userRepository->getUserByUsername($_SESSION['username']);
+
+			echo "<h4>Emri: $user[Emri]</h4>
+				  <h4>Mbiemri: $user[Mbiemri]</h4>
+				  <h4>Email: $user[Email]</h4>";
+		?>
+		
+		<a href="manageUsers.php" class="<?php echo $hide ?>" style="text-decoration: none;">
+			<input type="button" name="logoutButton" value="Manage Users">
+		</a>
+		<a href="readMessages.php" class="<?php echo $hide ?>"style="text-decoration: none;" >
+			<input type="button" name="logoutButton" value="Read Messages">
+		</a>
+		<a href="manageProducts.php" class="<?php echo $hide ?>"style="text-decoration: none;" >
+			<input type="button" name="logoutButton" value="Manage Products">
+		</a>
+		<a href="logout.php" style="text-decoration: none;">
+			<input class="profileButton" type="button" name="logoutButton" value="LOG OUT">
+		</a>
 		
 	</main>
 
@@ -107,4 +128,3 @@ if(!isset($_SESSION['username'])){
 </body>
 </html>
 
-<?php } ?>

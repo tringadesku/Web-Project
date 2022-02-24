@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Messages</title>
+	<title>Products</title>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -57,30 +57,44 @@
 	<table>
 		<tr>
 			<th>ID</th>
-			<th>Message</th>
-			<th>Email</th>
+			<th>ProductName</th>
+			<th>ProductText</th>
+			<th>Collection</th>
+			<th>Price</th>
+			<th></th>
+			<th></th>
 		</tr>
              <?php 
-             include_once 'contactRepo.php';
-             $contactRepository = new contactRepo();
+             include_once 'productsRepo.php';
+             $productsRepository = new productsRepo();
 
-             $messages = $contactRepository->getAllMessages();
+             $products = $productsRepository->getAllProducts();
 
-             foreach($messages as $message){
+             foreach($products as $product){
                 echo 
                 "
                 <tr>
-                     <td>$message[ID]</td>
-                     <td>$message[Message]</td>
-                     <td>$message[Email] </td>
+                     <td>$product[ID]</td>
+                     <td>$product[ProductName]</td>
+                     <td>$product[ProductText]</td>
+                     <td>$product[Collection]</td>
+                     <td>$product[Price]</td>
+                     <td> <a href='editProduct.php?id=$product[ID]' style='text-decoration: none;'>
+						<input type='submit' value='EDIT'>
+					 </a></td>
+                     <td> <a href='deleteProduct.php?id=$product[ID]' style='text-decoration: none;'>
+						<input type='submit' value='DELETE'>
+					</a></td>
                 </tr>
                 ";
              }
-
-             
              
              ?>
+
 	</table>
+		<a href="insertProduct.php" style="text-decoration: none;" >
+			<input type="button" name="InsertProduct" value="Insert Product">
+		</a>
 </main>
 	<footer>
 		<div class="footer-top">	

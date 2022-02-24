@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Messages</title>
+	<title>Insert Product</title>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -54,48 +54,41 @@
 	</header>
 
 <main>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Message</th>
-			<th>Email</th>
-		</tr>
-             <?php 
-             include_once 'contactRepo.php';
-             $contactRepository = new contactRepo();
+		
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 
-             $messages = $contactRepository->getAllMessages();
+          <h2>Insert Product: </h2>
 
-             foreach($messages as $message){
-                echo 
-                "
-                <tr>
-                     <td>$message[ID]</td>
-                     <td>$message[Message]</td>
-                     <td>$message[Email] </td>
-                </tr>
-                ";
-             }
+          <h5>ProductName:</h5> 
+          <input type="text" id="productName" name="productName"> <br>
+          <h5>ProductText:</h5> 
+          <input type="text" id="productText" name="productText"> <br>
+          <h5>Collection:</h5> 
+          <input type="text" id="collection" name="collection"> <br>
+          <h5>Price:</h5>
+          <input type="number" min="1" id="price" name="price"> <br>
 
-             
-             
-             ?>
-	</table>
+          <input type="submit" name="insertProductButton" value="INSERT PRODUCT">
+
+        </form>
+        <?php include_once 'productController.php';?>
+
+	</div>
 </main>
 	<footer>
 		<div class="footer-top">	
-		<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-			<h2>Contact Us</h3>
-			<textarea rows="5" cols="50" name="message">Type your message here</textarea>
-			<label>E-mail:</label>
-			<div class="contact-submit">
-				<input type="email" name="contactEmail">
-				<input class="contactButton" type="submit" name="contactButton" value="SEND">
-			</div>
-		</form>
-		
-		<?php include_once 'contactController.php';?>
-		
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+            <h2>Contact Us</h3>
+            <textarea rows="5" cols="50" name="message">Type your message here</textarea>
+            <label>E-mail:</label>
+            <div class="contact-submit">
+                <input type="email" name="contactEmail">
+                <input class="contactButton" type="submit" name="contactButton" value="SEND">
+            </div>
+        </form>
+        
+        <?php include_once 'contactController.php';?>
+
 			<div class="socialmedia">
 			   <a target="_blank" href="https://www.facebook.com/"><img src="img/facebook.png" alt="fb-logo"></a>
 			   <a  target="_blank" href="https://www.instagram.com/"><img src="img/instagram.png" alt="ig-logo"></a>
