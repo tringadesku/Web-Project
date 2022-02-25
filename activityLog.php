@@ -61,6 +61,7 @@
 			<th>Activity</th>
 			<th>User</th>
 			<th>Product</th>
+			<th>Date_Time</th>
 		</tr>
              <?php 
              include_once 'activityRepo.php';
@@ -77,6 +78,7 @@
                      <td>$activity[Activity]</td>
                      <td>$activity[User]</td>
                      <td>$activity[Product] </td>
+                     <td>$activity[Date_Time] </td>
                 </tr>
                 ";
              }

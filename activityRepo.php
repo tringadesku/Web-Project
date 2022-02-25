@@ -12,20 +12,22 @@ include_once 'databaseConnection.php';
 
 		function saveActivityOnProduct($admin,$activity,$product){
 			$connect = $this->connection;
+			$data = date("Y-m-d h:i");
 
-			$sql = "INSERT INTO activitylog (Admin,Activity,Product) VALUES (?,?,?)";
+			$sql = "INSERT INTO activitylog (Admin,Activity,Product,Date_Time) VALUES (?,?,?,?)";
 		    $statement = $connect->prepare($sql);
 
-	        $statement->execute([$admin,$activity,$product]);
+	        $statement->execute([$admin,$activity,$product,$data]);
 		}
 
 		function saveActivityOnUser($admin,$activity,$user){
 			$connect = $this->connection;
+			$data = date("Y-m-d h:i");
 
-			$sql = "INSERT INTO activitylog (Admin,Activity,User) VALUES (?,?,?)";
+			$sql = "INSERT INTO activitylog (Admin,Activity,User,Date_Time) VALUES (?,?,?,?)";
 		    $statement = $connect->prepare($sql);
 
-	        $statement->execute([$admin,$activity,$user]);
+	        $statement->execute([$admin,$activity,$user,$data]);
 		}
 
 		function readActivities(){
