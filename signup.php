@@ -8,10 +8,6 @@
     <title>LogIn/SignUp</title>
     <link rel="stylesheet" type="text/css" href="style/main.css" />
     
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
-      rel="stylesheet"
-    />
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
  
   </head>
@@ -86,7 +82,7 @@
           </div>
 
         </form>
-        <?php include_once 'registerController.php';?>
+        <?php include_once 'userController.php';?>
 
     <div class="img2">
       <img src="img/su1.svg" height="400px"/>

@@ -95,6 +95,9 @@
           
              ?>
 	</table>
+		<a href='insertUser.php' style='text-decoration: none;'>
+			<input class='profileButton' type='submit' value='Insert User'>
+		</a>
 
 </main>
 	<footer>

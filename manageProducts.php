@@ -80,10 +80,10 @@
                      <td>$product[Collection]</td>
                      <td>$product[Price]</td>
                      <td> <a href='editProduct.php?id=$product[ID]' style='text-decoration: none;'>
-						<input type='submit' value='EDIT'>
+						<input class='profileButton' type='submit' value='EDIT'>
 					 </a></td>
                      <td> <a href='deleteProduct.php?id=$product[ID]' style='text-decoration: none;'>
-						<input type='submit' value='DELETE'>
+						<input class='profileButton' type='submit' value='DELETE'>
 					</a></td>
                 </tr>
                 ";
@@ -93,7 +93,7 @@
 
 	</table>
 		<a href="insertProduct.php" style="text-decoration: none;" >
-			<input type="button" name="InsertProduct" value="Insert Product">
+			<input type="button" class='profileButton' name="InsertProduct" value="Insert Product">
 		</a>
 </main>
 	<footer>

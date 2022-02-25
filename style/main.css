@@ -614,7 +614,20 @@ footer textarea {
 }
 
 /* Profile */
+.profileText{
+  font-family: sans-serif;
+  margin-left: 20px;
+}
 
+.profileButton{
+  color: white;
+  background-color: hotpink;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 20px;
+}
 
 @media screen and (max-width: 1370px){
   .slider{

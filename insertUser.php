@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,11 +43,18 @@
         </div>
 
         <img id="bag" src="img/bag.png" alt="bag-icon" height="24px" />
-        <div class="account">
-          <img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px"/>
 
-          <p class="nav-link"><a id="active" href="login.php">Account</a></p>
-        </div>
+      <div class="account">
+        <img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px">
+
+        <?php if(isset($_SESSION['username'])){
+          echo "<p class='nav-link'><a href='profile.php'>".$_SESSION['username']." Profile</a></p>";
+        }
+        else{
+          echo "<p class='nav-link'><a href='login.php' target='_blank'>Account</a></p>";
+        }
+          ?>    
+      </div>
       </div>
     </header>
 
@@ -76,7 +84,7 @@
           <input type="submit" class="lbtn" id="register" name="registerButton" value="INSERT">
 
         </form>
-        <?php include_once 'registerController.php';?>
+        <?php include_once 'userController.php';?>
 
       </div>
 
@@ -94,7 +102,7 @@
         </div>
       </form>
       
-      <?php include_once 'contactController.php';?>
+      <?php include_once 'userController.php';?>
       
         <div class="socialmedia">
          <a target="_blank" href="https://www.facebook.com/"><img src="img/facebook.png" alt="fb-logo"></a>

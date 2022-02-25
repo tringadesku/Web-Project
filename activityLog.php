@@ -1,28 +1,11 @@
 <?php
-	$hide="";
-	session_start();
-	if(!isset($_SESSION['username'])){
-	  header("location:login.php");
-	}else{
-		if($_SESSION["role"] == "admin"){
-	    	 $hide = "";
-	    }else{
-	    $hide = "hide";
-		}
-	}
- ?>
- <!DOCTYPE html>
+	session_start(); ?>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
+	<title>Activity Log</title>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .hide{
-            display:none;
-        }
-
-    </style>
 </head>
 <body>
 	<div class="banner">
@@ -42,8 +25,7 @@
 			<span class="bar"></span>
 		</a>
 
-
-	  <div class="navigation">
+		<div class="navigation">
         <p class="nav-link"><a href="#aboutus">About Us</a></p>
         <p class="nav-link"><a href="shopall.php">Shop All</a></p>
         <div class="dropdown">
@@ -59,46 +41,51 @@
 			<div class="account">
 				<img class="nav-link" src="img/avatar.png" alt="avatar-icon" height="24px">
 
-				<p class="nav-link"><a href="profile.php"><?php echo $_SESSION['username'];?> Profile</a></p>				
+				<?php if(isset($_SESSION['username'])){
+					echo "<p class='nav-link'><a href='profile.php'>".$_SESSION['username']." Profile</a></p>";
+				}
+				else{
+					echo "<p class='nav-link'><a href='login.php' target='_blank'>Account</a></p>";
+				}
+					?>		
 			</div>
 
 		</div>
 	</header>
 
-	<main>
-		<h1 class='profileText'>Welcome back, <?php echo $_SESSION['username'];?>!</h1>
-		<?php 
+<main>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Admin</th>
+			<th>Activity</th>
+			<th>User</th>
+			<th>Product</th>
+		</tr>
+             <?php 
+             include_once 'activityRepo.php';
+             $activityRepository = new activityRepo();
 
-			include_once 'usersRepo.php';
-		    $userRepository = new usersRepo();
+             $activities = $activityRepository->readActivities();
 
-		    $user = $userRepository->getUserByUsername($_SESSION['username']);
+             foreach($activities as $activity){
+                echo 
+                "
+                <tr>
+                     <td>$activity[ID]</td>
+                     <td>$activity[Admin]</td>
+                     <td>$activity[Activity]</td>
+                     <td>$activity[User]</td>
+                     <td>$activity[Product] </td>
+                </tr>
+                ";
+             }
 
-			echo "<h4 class='profileText'>Emri: $user[Emri]</h4>
-				  <h4 class='profileText'>Mbiemri: $user[Mbiemri]</h4>
-				  <h4 class='profileText'>Email: $user[Email]</h4>";
-		?>
-		
-		<div>
-		<a href="manageUsers.php" class="<?php echo $hide ?>" style="text-decoration: none;">
-			<input class="profileButton" type="button" name="logoutButton" value="Manage Users">
-		</a> <br> <br>
-		<a href="readMessages.php" class="<?php echo $hide ?>"style="text-decoration: none;" >
-			<input class="profileButton" type="button" name="logoutButton" value="Read Messages">
-		</a> <br> <br>
-		<a href="manageProducts.php" class="<?php echo $hide ?>"style="text-decoration: none;" >
-			<input class="profileButton" type="button" name="logoutButton" value="Manage Products">
-		</a> <br> <br>
-		<a href="activityLog.php" class="<?php echo $hide ?>"style="text-decoration: none;" >
-			<input class="profileButton" type="button" name="logoutButton" value="Activity Log">
-		</a> <br> <br>
-		<a href="logout.php" style="text-decoration: none;">
-			<input class="profileButton" type="button" name="logoutButton" value="LOG OUT">
-		</a>
-		</div>
-		
-	</main>
-
+             
+             
+             ?>
+	</table>
+</main>
 	<footer>
 		<div class="footer-top">	
 		<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
@@ -130,7 +117,6 @@
 		</div>
 		
 	</footer>
-	<script type="text/javascript" src="main2.js"></script>
+
 </body>
 </html>
-

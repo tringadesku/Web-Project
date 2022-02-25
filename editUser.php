@@ -1,5 +1,4 @@
-<?php
-	session_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,10 +69,10 @@
         <input id="lname" type="text" name="lname" value="<?=$user['Mbiemri']?>"><br>
         <label id="lnameMsg" for="lname"></label><br>
         <h5>Username:</h5>
-        <input id="username" type="text" name="username" value="<?=$user['Username']?>"><br>
+        <input id="username" type="text" name="username" value="<?=$user['Username']?>" readonly><br>
         <label id="usernameMsg" for="username"></label><br>
         <h5>E-mail:</h5>
-        <input id="email" type="text" name="email" value="<?=$user['Email']?>"> <br>
+        <input id="email" type="text" name="email" value="<?=$user['Email']?>" readonly> <br>
         <label id="emailMsg" for="email"></label><br>
         <h5>Password:</h5>
         <input id="password" type="text" name="password" value="<?=$user['Password']?>"> <br>
@@ -86,6 +85,8 @@
 		
 	</form>
 	<?php include_once 'userController.php';?>
+
+    
 
 
 	</div>

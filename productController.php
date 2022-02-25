@@ -1,6 +1,8 @@
 <?php
 include_once 'productsRepo.php';
 include_once 'products.php';
+include_once 'activityRepo.php';
+$admin = $_SESSION['username'];
 
     if(isset($_POST['insertProductButton'])){
         if(empty($_POST['productName']) || empty($_POST['productText'])
@@ -20,6 +22,12 @@ include_once 'products.php';
                 echo "<script> alert('Product already exists!'); </script>";
             }else{
                 $productRepository->insertProduct($product);
+
+                $activity = "INSERTED";
+
+                $activityRepository = new activityRepo();
+                $activityRepository->saveActivityOnProduct($admin,$activity,$productName);
+
                 header("location:manageProducts.php");
             }
 
@@ -33,6 +41,11 @@ include_once 'products.php';
         $productText = $_POST['productText'];
         $collection = $_POST['collection'];
         $price = $_POST['price'];
+
+        $activity = "UPDATED";
+
+        $activityRepository = new activityRepo();
+        $activityRepository->saveActivityOnProduct($admin,$activity,$productName);
 
         $productsRepository->updateProduct($productId,$productName,$productText,$collection,$price);
         header("location:manageProducts.php");

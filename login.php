@@ -8,10 +8,7 @@
     <title>LogIn/SignUp</title>
     <link rel="stylesheet" type="text/css" href="style/main.css" />
     
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
-      rel="stylesheet"
-    />
+
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
  
   </head>

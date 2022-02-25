@@ -14,7 +14,15 @@ include_once 'users.php';
 	    $role = $_POST['role'];
 
 	    $userRepository->updateUser($userId,$fname,$lname,$username,$email,$password,$role);
-	   		header("location:manageUsers.php");
+	   	header("location:manageUsers.php");
+
+        include_once 'activityRepo.php';
+        $admin = $_SESSION['username'];
+        $activity = "UPDATED";
+
+        $activityRepository = new activityRepo();
+        $activityRepository->saveActivityOnUser($admin,$activity,$username);
+
 	}
 	else if(isset($_POST['registerButton'])){
         if(!(empty($_POST['fname'])) && !(empty($_POST['lname'])) && !(empty($_POST['username'])) &&
@@ -37,7 +45,21 @@ include_once 'users.php';
             }
             else{
                 $userRepository->insertUser($user);
-                header("location:login.php");
+
+                if(isset($_SESSION['username'])){ //dmth nese u kon logged in ni admin qe e ka insert
+                   include_once 'activityRepo.php';
+                   $admin = $_SESSION['username'];
+                   $activity = "INSERTED";
+
+                   $activityRepository = new activityRepo();
+                   $activityRepository->saveActivityOnUser($admin,$activity,$username);
+                   header("location:manageUsers.php");
+
+
+                }else{
+                  $userRepository->insertUser($user);
+                  header("location:login.php");
+                }
             }
         }
     }

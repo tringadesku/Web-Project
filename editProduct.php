@@ -64,7 +64,7 @@
 	?>
 	<form method="post" action="">
           <h5>ProductName:</h5> 
-          <input type="text" id="productName" name="productName" value="<?=$product['ProductName']?>"> <br>
+          <input type="text" id="productName" name="productName" value="<?=$product['ProductName']?>" readonly> <br>
           <h5>ProductText:</h5> 
           <input type="text" id="productText" name="productText" value="<?=$product['ProductText']?>"> <br>
           <h5>Collection:</h5> 
